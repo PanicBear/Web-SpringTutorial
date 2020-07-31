@@ -1,0 +1,9 @@
+package kr.co.netmania.diexam01;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class ApplicationConfig {
+	@Bean
+	public Car car(Engine e);
+}

@@ -1,0 +1,7 @@
+package kr.co.netmania.diexam01;
+
+public class ApplicationContextExam03 {
+	public static void main(String[] args) {
+
+	}
+}

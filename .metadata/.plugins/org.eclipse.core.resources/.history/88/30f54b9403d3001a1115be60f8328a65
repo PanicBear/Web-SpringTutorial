@@ -1,0 +1,13 @@
+package kr.co.netmania.diexam01;
+
+public class Car {
+	private Engine V8;
+	
+	public Car() {
+		System.out.println("Car constructor");
+	}
+	
+	public void setEngine(Engine e) {
+		this.V8 = e;
+	}
+}
