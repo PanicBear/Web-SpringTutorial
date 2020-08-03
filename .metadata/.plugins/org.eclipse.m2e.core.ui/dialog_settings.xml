@@ -2,6 +2,8 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="D:\workspace\personal\Web-SpringTutorial\diexam01"/>
+			<item value="D:\workspace\personal\Web-SpringTutorial\diexam01\src\main\java\kr\co\netmania\diexam01"/>
 			<item value="C:\Users\cheon\git\SpringFramework"/>
 		</list>
 		<list key="projectNameTemplate">
@@ -14,7 +16,7 @@
 		</list>
 	</section>
 	<section name="MavenProjectWizardArchetypePage">
-		<item key="catalog" value="https://repo1.maven.org/maven2/archetype-catalog.xml"/>
+		<item key="catalog" value="All Catalogs"/>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
 			<item value="[artifactId]-TRUNK"/>
@@ -26,13 +28,13 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
-			<item value="kr.co.netmania.diexam01"/>
+			<item value="kr.co.netmania.webbe.calculatorcli"/>
 		</list>
 		<list key="groupId">
-			<item value="kr.co.netmania"/>
+			<item value="kr.co.netmania.webbe"/>
 		</list>
 		<list key="artifactId">
-			<item value="diexam01"/>
+			<item value="calculatorcli"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -76,5 +78,13 @@
 		</list>
 	</section>
 	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="org.eclipse.m2e.core.ui.internal.wizards.CustomArchetypeDialog">
+	</section>
+	<section name="org.eclipse.m2e.core.ui.internal.dialogs.EditDependencyDialog">
+		<item key="width" value="480"/>
+		<item key="height" value="450"/>
+		<item key="x" value="2960"/>
+		<item key="y" value="315"/>
 	</section>
 </section>
