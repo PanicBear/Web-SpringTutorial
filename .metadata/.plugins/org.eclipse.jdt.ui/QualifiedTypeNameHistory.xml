@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="kr.co.netmania.diexam01.UserBean"/>
     <fullyQualifiedTypeName name="org.springframework.context.support.ClassPathXmlApplicationContext"/>
-    <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
     <fullyQualifiedTypeName name="kr.co.netmania.diexam01.ApplicationConfig"/>
     <fullyQualifiedTypeName name="kr.co.netmania.diexam01.CalculatorService"/>
     <fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeAll"/>
@@ -13,11 +11,7 @@
     <fullyQualifiedTypeName name="org.springframework.util.Assert"/>
     <fullyQualifiedTypeName name="org.junit.Before"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Configurable"/>
-    <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
-    <fullyQualifiedTypeName name="org.springframework.context.annotation.ComponentScan"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
-    <fullyQualifiedTypeName name="org.springframework.context.ApplicationContext"/>
-    <fullyQualifiedTypeName name="org.springframework.context.annotation.AnnotationConfigApplicationContext"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="org.springframework.test.context.junit4.SpringJUnit4ClassRunner"/>
     <fullyQualifiedTypeName name="org.junit.runner.RunWith"/>
@@ -30,4 +24,40 @@
     <fullyQualifiedTypeName name="org.mockito.InjectMocks"/>
     <fullyQualifiedTypeName name="org.mockito.Mock"/>
     <fullyQualifiedTypeName name="kr.co.netmania.webbe.calculatorcli.CalculatorService"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Import"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
+    <fullyQualifiedTypeName name="org.springframework.transaction.annotation.EnableTransactionManagement"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
+    <fullyQualifiedTypeName name="org.apache.commons.dbcp2.BasicDataSource"/>
+    <fullyQualifiedTypeName name="kr.co.netmania.daoexam.main.DataSourceTest"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+    <fullyQualifiedTypeName name="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate"/>
+    <fullyQualifiedTypeName name="javax.swing.tree.RowMapper"/>
+    <fullyQualifiedTypeName name="org.springframework.jdbc.core.RowMapper"/>
+    <fullyQualifiedTypeName name="org.springframework.jdbc.core.BeanPropertyRowMapper"/>
+    <fullyQualifiedTypeName name="javax.sql.DataSource"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.ComponentScan"/>
+    <fullyQualifiedTypeName name="kr.or.netmania.daoexam.dao.RoleDao"/>
+    <fullyQualifiedTypeName name="java.awt.List"/>
+    <fullyQualifiedTypeName name="kr.or.netmania.daoexam.dto.Role"/>
+    <fullyQualifiedTypeName name="org.springframework.jdbc.core.simple.SimpleJdbcInsert"/>
+    <fullyQualifiedTypeName name="kr.or.netmania.daoexam.dao.RoleDaoSql"/>
+    <fullyQualifiedTypeName name="org.springframework.context.ApplicationContext"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.AnnotationConfigApplicationContext"/>
+    <fullyQualifiedTypeName name="kr.co.netmania.daoexam.config.ApplicationConfig"/>
+    <fullyQualifiedTypeName name="javax.management.relation.Role"/>
+    <fullyQualifiedTypeName name="kr.co.netmania.daoexam.dto.Role"/>
+    <fullyQualifiedTypeName name="kr.co.netmania.daoexam.dao.RoleDao"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.jdbc.core.SqlParameter"/>
+    <fullyQualifiedTypeName name="org.springframework.jdbc.core.namedparam.SqlParameterSource"/>
+    <fullyQualifiedTypeName name="org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource"/>
+    <fullyQualifiedTypeName name="org.springframework.jdbc.core.simple.SimpleJdbcCall"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="kr.co.netmania.daoexam.dao.RoleDaoSql"/>
+    <fullyQualifiedTypeName name="org.springframework.dao.EmptyResultDataAccessException"/>
 </qualifiedTypeNameHistroy>
