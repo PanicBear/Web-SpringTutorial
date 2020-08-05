@@ -55,4 +55,14 @@
 			<item value="org.eclipse.m2e"/>
 		</list>
 	</section>
+	<section name="ResourceNavigator">
+		<item key="ResourceViewer.STORE_SORT_TYPE" value="1"/>
+	</section>
+	<section name="CleanDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="2910"/>
+		<item key="DIALOG_Y_ORIGIN" value="326"/>
+		<item key="DIALOG_WIDTH" value="581"/>
+		<item key="DIALOG_HEIGHT" value="434"/>
+		<item key="TOGGLE_SELECTED" value="false"/>
+	</section>
 </section>

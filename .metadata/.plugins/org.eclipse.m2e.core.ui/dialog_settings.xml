@@ -28,16 +28,13 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
-			<item value="kr.co.netmania.daoexam"/>
-			<item value="kr.co.netmania.webbe.calculatorcli"/>
+			<item value="kr.co.netmania.mvcexam"/>
 		</list>
 		<list key="groupId">
 			<item value="kr.co.netmania"/>
-			<item value="kr.co.netmania.webbe"/>
 		</list>
 		<list key="artifactId">
-			<item value="daoexam"/>
-			<item value="calculatorcli"/>
+			<item value="mvcexam"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
