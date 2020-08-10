@@ -1,9 +1,0 @@
-package kr.co.netmania.diexam01;
-
-public class UserBean {
-
-	1) 기본 생성자
-	2) private 필드
-	3) getter, setter 메서드
-
-}

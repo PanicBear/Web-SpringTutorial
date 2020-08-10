@@ -1,7 +1,0 @@
-package kr.co.netmania.diexam01;
-
-public class Engine {
-	public Engine() {
-		System.out.println("Engine constructor");
-	}
-}

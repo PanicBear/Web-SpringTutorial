@@ -2,7 +2,9 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="D:\workspace\personal\Web-SpringTutorial\diexam01\pom.xml"/>
 			<item value="D:\workspace\personal\Web-SpringTutorial\diexam01"/>
+			<item value="D:\workspace\personal\Web-SpringTutorial\calculatorcli"/>
 			<item value="D:\workspace\personal\Web-SpringTutorial\diexam01\src\main\java\kr\co\netmania\diexam01"/>
 			<item value="C:\Users\cheon\git\SpringFramework"/>
 		</list>
@@ -28,12 +30,17 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="kr.co.netmania.guestbook"/>
+			<item value="kr.co.netmania.login"/>
+			<item value="kr.co.netmania"/>
 			<item value="kr.co.netmania.mvcexam"/>
 		</list>
 		<list key="groupId">
 			<item value="kr.co.netmania"/>
 		</list>
 		<list key="artifactId">
+			<item value="guestbook"/>
+			<item value="login"/>
 			<item value="mvcexam"/>
 		</list>
 		<list key="projectNameTemplate">
@@ -86,5 +93,18 @@
 		<item key="height" value="450"/>
 		<item key="x" value="2960"/>
 		<item key="y" value="315"/>
+	</section>
+	<section name="wizardPage">
+		<list key="groupId">
+			<item value="login"/>
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+			<item value="login"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
 	</section>
 </section>
