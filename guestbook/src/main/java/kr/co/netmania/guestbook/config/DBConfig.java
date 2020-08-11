@@ -17,8 +17,8 @@ public class DBConfig implements TransactionManagementConfigurer {
 
 	private String driverClassName = "com.mysql.cj.jdbc.Driver";
 	private String url = "jdbc:mysql://localhost:3306/connectdb?serverTimezone=Asia/Seoul&useUnicode=true&characterEncoding=utf8";
-	private String username = "";
-	private String password = "";
+	private String username = "connectuser";
+	private String password = "connect123!@#";
 	
 	//"jdbc:mysql://아이피주소:3306/데이터베이스이름?serverTimezone=UTC"
 	

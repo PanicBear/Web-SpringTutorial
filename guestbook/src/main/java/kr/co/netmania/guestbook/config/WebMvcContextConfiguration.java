@@ -38,6 +38,7 @@ public class WebMvcContextConfiguration implements WebMvcConfigurer {
 	@Override
 	public void addViewControllers(final ViewControllerRegistry registry) {
 		System.out.println("addViewControll가 호출됩니다");
+		System.out.println("id랑 pw 지워놨으니 ApplicationConfig 확인");
 		registry.addViewController("/").setViewName("index");
 	}
 

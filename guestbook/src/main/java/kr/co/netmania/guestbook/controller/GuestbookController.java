@@ -20,8 +20,6 @@ import kr.co.netmania.guestbook.service.GuestbookService;
 public class GuestbookController {
 	@Autowired
 	GuestbookService guestbookService;
-
-	
 	
 	@GetMapping(path = "/list")
 	public String list(@RequestParam(name = "start", required = false, defaultValue = "0") int start, ModelMap model) {
