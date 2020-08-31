@@ -49,4 +49,14 @@ public class ReservationApiController {
 		map.put("products", list);
 		return map;
 	}
+	
+	@ApiOperation(value = "프로모션 목록 구하기")
+	@ApiResponses({@ApiResponse(code = 200, message = "OK"), @ApiResponse(code = 500, message = "Exception")})
+	@GetMapping("/promotions")
+	public Map<String, Object> promotions(){
+		Map<String, Object> map = new HashMap<>();
+		map.put("size", reservationService.getPromotionSize());
+		map.put("items", reservationService.getPromotionItems());
+		return map;
+	}
 }

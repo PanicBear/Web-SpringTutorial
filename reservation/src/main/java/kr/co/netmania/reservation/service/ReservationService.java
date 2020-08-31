@@ -8,8 +8,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.netmania.reservation.dao.CategoryDao;
 import kr.co.netmania.reservation.dao.DisplayInfoDao;
+import kr.co.netmania.reservation.dao.PromotionDao;
 import kr.co.netmania.reservation.dto.Category;
 import kr.co.netmania.reservation.dto.DisplayInfo;
+import kr.co.netmania.reservation.dto.Promotion;
 
 @Service
 public class ReservationService {
@@ -19,6 +21,9 @@ public class ReservationService {
 	
 	@Autowired
 	DisplayInfoDao displayInfoDao;
+	
+	@Autowired
+	PromotionDao promotionDao;
 	
 	// api/categories
 	public int getCategorySize() {
@@ -37,5 +42,13 @@ public class ReservationService {
 	}
 	public List<DisplayInfo> getProducts(Integer categoryId, Integer start){
 		return displayInfoDao.selectProducts(categoryId, start);
+	}
+	
+	// api/promotions
+	public int getPromotionSize() {
+		return promotionDao.selectPromotionSize();
+	}
+	public List<Promotion> getPromotionItems() {
+		return promotionDao.selectPromotionItems();
 	}
 }
