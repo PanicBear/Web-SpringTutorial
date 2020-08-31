@@ -10,7 +10,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class DisplayInfoWithDisplayIdWrapper {
-	private List<DisplayInfo> product;
+	private List<DisplayInfoProduct> product;
 	private List<DisplayImage> productImages;
 	private List<DisplayInfoImage> displayInfoImages;
 	private int avgScore;

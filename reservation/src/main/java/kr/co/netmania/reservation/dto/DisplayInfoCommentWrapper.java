@@ -9,8 +9,8 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class DisplayInfoWrapper {
+public class DisplayInfoCommentWrapper {
 	private int totalCount;
-	private int productCount;
-	private List<DisplayInfo> products;
+	private int commentCount;
+	private List<DisplayInfoComment> reservationUserComments;
 }

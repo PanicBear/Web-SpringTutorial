@@ -2,24 +2,24 @@ package kr.co.netmania.reservation.dao;
 
 public class DisplayInfoDaoSqls {
 	
-	public static final String SELECT_TOTALCOUNT_ALL =
+	public static final String SELECT_PRODUCT_TOTALCOUNT_ALL =
 			"SELECT "
-				+ "count(*) as totalCount "
+				+ "count(product.id) as totalCount "
 			+ "FROM	"
 				+ "connectdb.product ";
 	
-	public static final String SELECT_TOTALCOUNT_BY_CATEGORYID =
-			SELECT_TOTALCOUNT_ALL
+	public static final String SELECT_PRODUCT_TOTALCOUNT_BY_CATEGORYID =
+			SELECT_PRODUCT_TOTALCOUNT_ALL
 			+ "WHERE "
 				+ "product.category_id = :categoryId "; 
 	
 	public static final String SELECT_PRODUCTCOUNT_ALL =
-			SELECT_TOTALCOUNT_ALL
+			SELECT_PRODUCT_TOTALCOUNT_ALL
 			+ "LIMIT "
 				+ ":start, 99999999";
 	
 	public static final String SELECT_PRODUCTCOUNT_BY_CATEGORYID = 
-			SELECT_TOTALCOUNT_BY_CATEGORYID
+			SELECT_PRODUCT_TOTALCOUNT_BY_CATEGORYID
 			+ "LIMIT "
 				+ ":start, 99999999";
 	
@@ -212,5 +212,51 @@ public class DisplayInfoDaoSqls {
 				"AND " + 
 				"product.id = product_price.product_id " + 
 				"AND " + 
-				"display_info.id = :displayId";	
+				"display_info.id = :displayId";
+
+	public static final String SELECT_COMMENT_TOTALCOUNT_BY_PRODUCTID =
+			"SELECT " + 
+			"count(reservation_user_comment.id) AS count " + 
+			"FROM " + 
+			"connectdb.reservation_user_comment " + 
+			"WHERE " + 
+			"reservation_user_comment.product_id = :productId";
+
+	public static final String SELECT_COMMENT_TOTALCOUNT_ALL =
+			"SELECT "+
+				"count(reservation_user_comment.id) AS count " +
+			"FROM "+
+				"connectdb.reservation_user_comment";
+	
+	public static final String SELECT_COMMENTCOUNT_BY_PRODUCTID =
+			SELECT_COMMENT_TOTALCOUNT_BY_PRODUCTID
+			+ "LIMIT "
+				+ ":start, :limit";
+	
+	public static final String SELECT_COMMENTCOUNT_ALL =
+			SELECT_COMMENT_TOTALCOUNT_ALL
+			+ "LIMIT "
+				+ ":start, :limit";
+
+	public static final String SELECT_RESERVATIONUSERCOMMENTS_BY_PRODUCTID = 
+			"SELECT " + 
+				"* " + 
+			"FROM " + 
+				"connectdb.reservation_user_comment " + 
+			"WHERE " + 
+				"reservation_user_comment.product_id " + 
+				"AND " + 
+				"reservation_user_comment.product_id = :productId " + 
+			"LIMIT " + 
+				":start, :limit";
+
+	public static final String SELECT_RESERVATIONUSERCOMMENTS_ALL = 
+			"SELECT " + 
+				"* " + 
+			"FROM " + 
+				"connectdb.reservation_user_comment " + 
+			"WHERE " + 
+				"reservation_user_comment.product_id " + 
+			"LIMIT " + 
+				":start, :limit";
 }
