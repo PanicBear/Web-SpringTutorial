@@ -10,7 +10,10 @@ import kr.co.netmania.reservation.dao.CategoryDao;
 import kr.co.netmania.reservation.dao.DisplayInfoDao;
 import kr.co.netmania.reservation.dao.PromotionDao;
 import kr.co.netmania.reservation.dto.Category;
+import kr.co.netmania.reservation.dto.DisplayImage;
 import kr.co.netmania.reservation.dto.DisplayInfo;
+import kr.co.netmania.reservation.dto.DisplayInfoImage;
+import kr.co.netmania.reservation.dto.DisplayPrice;
 import kr.co.netmania.reservation.dto.Promotion;
 
 @Service
@@ -43,6 +46,24 @@ public class ReservationService {
 	public List<DisplayInfo> getProducts(Integer categoryId, Integer start){
 		return displayInfoDao.selectProducts(categoryId, start);
 	}
+	
+	// api/displayinfos/{displayId}
+	public List<DisplayInfo> getProduct(Integer displayId){
+		return displayInfoDao.selectProduct(displayId);
+	}
+	public List<DisplayImage> getProductImages(Integer displayId){
+		return displayInfoDao.selectProductImages(displayId);
+	}
+	public List<DisplayInfoImage> getDisplayInfoImages(Integer displayId){
+		return displayInfoDao.selectDisplayInfoImages(displayId);
+	}
+	public int getAvgScore(Integer displayId){
+		return displayInfoDao.selectAvgScore(displayId);
+	}
+	public List<DisplayPrice> getProductPrices(Integer displayId){
+		return displayInfoDao.selectProductPrices(displayId);
+	}
+	
 	
 	// api/promotions
 	public int getPromotionSize() {
