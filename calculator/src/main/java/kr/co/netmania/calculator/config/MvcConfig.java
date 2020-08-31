@@ -17,7 +17,6 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
-<<<<<<< HEAD
 @EnableWebMvc
 @EnableSwagger2
 @ComponentScan(basePackages = { "kr.co.netmania.calculator.controller" })
@@ -57,46 +56,4 @@ public class MvcConfig implements WebMvcConfigurer {
 				.build();
 		return apiInfo;
 	}
-=======
-@ComponentScan(basePackages = { "kr.co.netmania.calculator.controller" })
-@EnableWebMvc
-@EnableSwagger2
-public class MvcConfig implements WebMvcConfigurer {
-
-	// DefaultServlet에 대한 설정
-	// DispatcherServlet이 처리하지 못하는 URL을 처리
-	// 해당 설정이 없으면 자동 생성된 Swagger 페이지를 볼 수없다
-	@Override
-	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-		configurer.enable();
-	}
-
-	// Swagger 사용 시에는 Docket Bean을 품고있는 설정 클래스 1개가 기본으로 필요하다.
-	// Spring Boot에서는 이 기본적인 설정파일 1개로 Swagger와 Swagger UI를 함께 사용가능
-	// Spring MVC의 경우 Swagger UI를 위한 별도의 설정이 필요하다.
-	// Swagger UI를 ResourceHandler에 수동으로 등록해야 하는 작업인데
-	// Spring Boot에서는 이를 자동을 설정해주지만 Spring MVC에서는 그렇지 않기 때문
-	@Bean
-	public Docket api() {
-		// api의 그룹명이나 이동경로, 속한 패키지 등의 정보 명세
-		return new Docket(DocumentationType.SWAGGER_2)
-				.select()
-				.apis(RequestHandlerSelectors.any())
-				.paths(PathSelectors.ant("/api/**"))
-				.build()
-				.apiInfo(apiInfo())
-				.useDefaultResponseMessages(false);
-	}
-
-	private ApiInfo apiInfo() {
-		Contact contact = new Contact("강경미", "https://www.edwith.org", "carami@edwith.org");
-
-		ApiInfo apiInfo = new ApiInfoBuilder().title("Swagger Sample").description("APIs Sample")
-				.version("Sample Doc 0.1v").contact(contact).license("This sentence will be display.")
-				.termsOfServiceUrl("/").build();
-
-		return apiInfo;
-	}
-
->>>>>>> refs/remotes/origin/master
 }
