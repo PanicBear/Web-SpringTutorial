@@ -23,8 +23,8 @@ public class DisplayInfoDaoSqls {
 			+ "LIMIT "
 				+ ":start, 99999999";
 	
-	// 특정 카테고리 조회
-	public static final String SELECT_PRODUCTS_BY_CATEGORYID = 
+	// 조인 테이블
+	public static final String JOIN_TABLE_PRODUCTS =
 			"SELECT " + 
 				"product.id, " + 
 				"product.category_id, " + 
@@ -43,57 +43,34 @@ public class DisplayInfoDaoSqls {
 				"product.create_date, " + 
 				"product.modify_date, " + 
 				"product_image.file_id " + 
-			"FROM  " + 
-				"connectdb.product, " + 
-				"connectdb.reservation_info, " + 
-				"connectdb.category, " + 
-				"connectdb.display_info, " + 
-				"connectdb.product_image " + 
-			"WHERE " + 
-				"product_image.product_id = product.id " + 
-				"AND " + 
+			"FROM     " + 
+				"connectdb.product " + 
+			"INNER JOIN " + 
+				"connectdb.display_info " + 
+			"ON " + 
+				"product.id = display_info.product_id " + 
+			"INNER JOIN " + 
+				"connectdb.category " + 
+			"ON " + 
 				"category.id = product.category_id " + 
-				"AND " + 
-				"display_info.product_id = product.id " +
-				"AND " + 
+			"INNER JOIN " + 
+				"connectdb.product_image " + 
+			"ON " + 
+				"product_image.product_id = product.id ";
+	
+	// 조인 테이블 특정 카테고리 조회
+	public static final String SELECT_PRODUCTS_BY_CATEGORYID = 
+			JOIN_TABLE_PRODUCTS + 
+			"WHERE " + 
 				"category.id = :categoryId " + 
 			"GROUP BY " + 
-				"product.id " +
-			"LIMIT " +
+				"product.id " + 
+			"LIMIT " + 
 				":start, 99999999 ";
 	
-	// 0이나 공백 시 카테고리  전체조회
+	// 조인 테이블 전체 조회(0이나 공백)
 	public static final String SELECT_PRODUCTS_ALL = 
-			"SELECT " + 
-				"product.id, " + 
-				"product.category_id, " + 
-				"display_info.id AS displayInfoId, " + 
-				"category.name, " + 
-				"product.description, " + 
-				"product.content, " + 
-				"product.event, " + 
-				"display_info.opening_hours, " + 
-				"display_info.place_name, " + 
-				"display_info.place_lot, " + 
-				"display_info.place_street, " + 
-				"display_info.tel, " + 
-				"display_info.homepage, " + 
-				"display_info.email, " + 
-				"product.create_date, " + 
-				"product.modify_date, " + 
-				"product_image.file_id " + 
-			"FROM  " + 
-				"connectdb.product, " + 
-				"connectdb.reservation_info, " + 
-				"connectdb.category, " + 
-				"connectdb.display_info, " + 
-				"connectdb.product_image " + 
-			"WHERE " + 
-				"product_image.product_id = product.id " + 
-				"AND " + 
-				"category.id = product.category_id " + 
-				"AND " + 
-				"display_info.product_id = product.id " +
+			JOIN_TABLE_PRODUCTS +
 			"GROUP BY " + 
 				"product.id " +
 			"LIMIT " +
@@ -101,73 +78,47 @@ public class DisplayInfoDaoSqls {
 	
 	// displayId를 통한 상세정보 조회
 	public static final String SELECT_PRODUCT_BY_DISPLAYID = 
-			"SELECT " + 
-				"product.id, " + 
-				"product.category_id, " + 
-				"display_info.id AS displayInfoId, " + 
-				"category.name, " + 
-				"product.description, " + 
-				"product.content, " + 
-				"product.event, " + 
-				"display_info.opening_hours, " + 
-				"display_info.place_name, " + 
-				"display_info.place_lot, " + 
-				"display_info.place_street, " + 
-				"display_info.tel, " + 
-				"display_info.homepage, " + 
-				"display_info.email, " + 
-				"product.create_date, " + 
-				"product.modify_date, " + 
-				"product_image.file_id " + 
-			"FROM  " + 
-				"connectdb.product, " + 
-				"connectdb.reservation_info, " + 
-				"connectdb.category, " + 
-				"connectdb.display_info, " + 
-				"connectdb.product_image " + 
+			JOIN_TABLE_PRODUCTS + 
 			"WHERE " + 
-				"product_image.product_id = product.id " + 
-				"AND " + 
-				"category.id = product.category_id " + 
-				"AND " + 
-				"display_info.product_id = product.id " +
-				"AND " + 
 				"display_info.product_id = :displayId " +
 			"GROUP BY " + 
 				"product.id";
 	
 	public static final String SELECT_PRODUCT_IMAGES_BY_DISPLAYID =
 			"SELECT " + 
-				"product.id, " + 
+				"product_image.product_id, " + 
 				"product_image.id, " + 
 				"product_image.type, " + 
 				"product_image.file_id, " + 
 				"file_info.file_name, " + 
 				"file_info.save_file_name, " + 
 				"file_info.content_type, " + 
-				"file_info.delete_flag, " +	 
+				"file_info.delete_flag, " + 
 				"file_info.create_date, " + 
 				"file_info.modify_date " + 
 			"FROM " + 
-				"connectdb.product, " + 
-				"connectdb.file_info, " + 
-				"connectdb.display_info, " + 
 				"connectdb.product_image " + 
-			"WHERE " + 
-				"product_image.product_id = product.id " + 
-				"AND " + 
+			"INNER JOIN " + 
+				"connectdb.file_info " + 
+			"ON " + 
 				"file_info.id = product_image.file_id " + 
-				"AND " + 
-				"display_info.product_id = product.id " + 
-				"AND " + 
+			"INNER JOIN " + 
+				"connectdb.product " + 
+			"ON " + 
+				"product.id = product_image.product_id " + 
+			"INNER JOIN " + 
+				"connectdb.display_info " + 
+			"ON " + 
+				"display_info.product_id=product.id " + 
+			"WHERE " + 
 				"display_info.id = :displayId " + 
 			"GROUP BY " + 
-				"product.id";
+				"product_image.product_id";
 	
 	public static final String SELECT_DISPLAYINFO_IMAGES_BY_DISPLAYID =
 			"SELECT " + 
 				"display_info_image.id, " + 
-				"display_info.id, " + 
+				"display_info_image.display_info_id, " + 
 				"file_info.id, " + 
 				"file_info.file_name, " + 
 				"file_info.save_File_Name, " + 
@@ -176,43 +127,50 @@ public class DisplayInfoDaoSqls {
 				"file_info.create_Date, " + 
 				"file_info.modify_Date " + 
 			"FROM " + 
-				"connectdb.display_info, " + 
-				"connectdb.display_info_image, " + 
+				"connectdb.display_info_image " + 
+			"INNER JOIN " + 
 				"connectdb.file_info " + 
-			"WHERE " + 
-				"display_info_image.display_info_id = display_info.id " + 
-				"AND " + 
+			"ON " + 
 				"display_info_image.file_id = file_info.id " + 
-				"AND " + 
-				"display_info.id = :displayId ";
+			"AND " + 
+				"display_info_image.id = :displayId ";
 	
 	public static final String SELECT_AVG_SCORE_BY_DISPLAYID = 
 			"SELECT " + 
-				"round(avg(reservation_user_comment.score)) as avgScore " + 
+			"round(avg(reservation_user_comment.score)) as avgScore " + 
 			"FROM " + 
-				"connectdb.reservation_info, " + 
-				"connectdb.reservation_user_comment, " + 
-				"connectdb.display_info     " + 
+			"connectdb.reservation_info " + 
+			"INNER JOIN " + 
+			"connectdb.reservation_user_comment " + 
+			"ON " + 
+			"reservation_user_comment.reservation_info_id = reservation_info.id " + 
+			"INNER JOIN " + 
+			"connectdb.display_info " + 
+			"ON " + 
+			"display_info.id = reservation_info.display_info_id " + 
 			"WHERE " + 
-				"display_info.id = reservation_info.display_info_id " + 
-			"AND " + 
-				"reservation_info.id = reservation_user_comment.reservation_info_id " + 
-			"AND " + 
-				"display_info.id = :displayId ";
+			"display_info.id = :displayId ";
 	
 	public static final String SELECT_PRODUCT_PRICES_BY_DISPLAYID =
 			"SELECT " + 
-				"* " + 
+			"product_price.id, " + 
+			"product_price.product_id, " + 
+			"product_price.price_type_name, " + 
+			"product_price.discount_rate, " + 
+			"product_price.create_date, " + 
+			"product_price.modify_date " + 
 			"FROM " + 
-				"connectdb.product_price, " + 
-				"connectdb.product, " + 
-				"connectdb.display_info " + 
+			"connectdb.product_price " + 
+			"INNER JOIN " + 
+			"connectdb.product " + 
+			"ON " + 
+			"product.id = product_price.product_id " + 
+			"INNER JOIN " + 
+			"connectdb.display_info " + 
+			"ON " + 
+			"display_info.product_id = product.id " + 
 			"WHERE " + 
-				"display_info.product_id = product.id " + 
-				"AND " + 
-				"product.id = product_price.product_id " + 
-				"AND " + 
-				"display_info.id = :displayId";
+			"display_info.id = :displayId ";
 
 	public static final String SELECT_COMMENT_TOTALCOUNT_BY_PRODUCTID =
 			"SELECT " + 
@@ -244,8 +202,6 @@ public class DisplayInfoDaoSqls {
 			"FROM " + 
 				"connectdb.reservation_user_comment " + 
 			"WHERE " + 
-				"reservation_user_comment.product_id " + 
-				"AND " + 
 				"reservation_user_comment.product_id = :productId " + 
 			"LIMIT " + 
 				":start, :limit";

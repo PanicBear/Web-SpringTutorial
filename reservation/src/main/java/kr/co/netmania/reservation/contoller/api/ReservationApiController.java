@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -67,9 +68,9 @@ public class ReservationApiController {
 	@ApiResponses({@ApiResponse(code = 200, message = "OK"), @ApiResponse(code = 500, message = "Exception")})
 	@GetMapping("/displayinfos")
 	public Map<String, Object> displayInfosProductList(
-			@RequestParam(name = "categoryId", required = false, defaultValue = "0")int categoryId, 
+			@RequestParam(name = "categoryid", required = false, defaultValue = "0")int categoryId, 
 			@RequestParam(name = "start", required = false, defaultValue = "0")int start,
-			@RequestParam(name = "productId", required = false, defaultValue = "0")int productId){
+			@RequestParam(name = "productid", required = false, defaultValue = "0")int productId){
 		System.out.println("productId : "+productId+"categoryId : "+categoryId);
 		if(productId != 0 && categoryId==0) {
 			List<DisplayInfoComment> list = reservationService.getReservationUserComments(productId, start);
