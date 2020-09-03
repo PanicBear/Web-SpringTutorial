@@ -1,4 +1,4 @@
-package kr.co.netmania.guestbook.config;
+package kr.co.netmania.guessnumber.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -10,12 +10,11 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+@Configuration
+@EnableWebMvc
+@ComponentScan(basePackages = {"kr.co.netmania.guessnumber.controller"})
+public class MvcConfig implements WebMvcConfigurer {
 
-// 해당 설정들은 DispatcherServlet이 불러들이는 것
-
-
-public class WebMvcContextConfiguration implements WebMvcConfigurer {
-	
 	// 특정 url이 입력되었을 때 파일로부터 읽어들임
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -23,21 +22,17 @@ public class WebMvcContextConfiguration implements WebMvcConfigurer {
 		registry.addResourceHandler("/img/**").addResourceLocations("/img/").setCachePeriod(31556926);
 		registry.addResourceHandler("/js/**").addResourceLocations("/js/").setCachePeriod(31556926);
 	}
-	
-	
+
 	// default servlet handler를 사용하게 함
 	// mapping 정보가 없는 url이 들어왔을 때 defaultServletHttpRequestHandle이 처리
 	@Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
 		configurer.enable();
 	}
-	
-	
+
 	// 특정 url에 대한 처리를 controller 클래스를 작성하지 않고 매핑 할 수 있도록 함
 	@Override
 	public void addViewControllers(final ViewControllerRegistry registry) {
-		System.out.println("addViewControll가 호출됩니다");
-		System.out.println("id랑 pw 지워놨으니 ApplicationConfig 확인");
 		registry.addViewController("/").setViewName("index");
 	}
 
