@@ -12,8 +12,10 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 
 // 해당 설정들은 DispatcherServlet이 불러들이는 것
-
-
+// 이 어노테이션들 지운거 실수(9/3커밋된 것)
+@Configuration
+@EnableWebMvc
+@ComponentScan(basePackages = {"kr.co.netmania.guestbook.controller"})
 public class WebMvcContextConfiguration implements WebMvcConfigurer {
 	
 	// 특정 url이 입력되었을 때 파일로부터 읽어들임
